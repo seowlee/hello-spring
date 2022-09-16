@@ -1,5 +1,6 @@
 package hello.hellospring;
 
+import hello.hellospring.aop.TimeTraceAop;
 import hello.hellospring.repository.MemberRepository;
 import hello.hellospring.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,24 +17,28 @@ public class SpringConfig {
 //        this.dataSource = dataSource;
 //    }
 
-	//    private EntityManager em;
+    //    private EntityManager em;
 //
 //    @Autowired
 //    public SpringConfig(EntityManager em) {
 //        this.em = em;
 //    }
-	private final MemberRepository memberRepository;
+    private final MemberRepository memberRepository;
 
-	@Autowired
-	public SpringConfig(MemberRepository memberRepository) {
+    @Autowired
+    public SpringConfig(MemberRepository memberRepository) {
 		this.memberRepository = memberRepository;
-	}
+    }
 
-
-	@Bean
-	public MemberService memberService() {
+    @Bean
+    public MemberService memberService() {
 		return new MemberService(memberRepository);
-	}
+    }
+
+//	@Bean
+//	public TimeTraceAop timeTraceAop() {
+//		return new TimeTraceAop();
+//	}
 
 //	@Bean
 //	public MemberRepository memberRepository() {
